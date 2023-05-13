@@ -1,34 +1,21 @@
 #![no_std]
+mod banner;
+mod data_keys;
 mod errors;
-
-use crate::errors::ContractError;
-use soroban_sdk::{
-    contractimpl, contracttype, map, panic_with_error, unwrap::UnwrapOptimized, vec, Address,
-    BytesN, Env, Map, Vec,
-};
-
-mod token {
-    soroban_sdk::contractimport!(file = "../token/soroban_token_spec.wasm");
-}
-
 mod test;
 mod testutils;
 
-#[derive(Clone)]
-#[contracttype]
-pub enum DataKey {
-    Bidders,
-    Admin,
-    Deadline,
-    BannerId,
-    Banner(u32),
-    Token,
-    Fee,
-    Reward,
-    Balance,
-    Players,
-    Total,
-    Fund,
+use crate::errors::ContractError;
+use soroban_sdk::{
+    contractimpl, map, panic_with_error, unwrap::UnwrapOptimized, vec, Address, BytesN, Env, Map,
+    Vec,
+};
+
+use crate::banner::{get_and_inc_banner_id, get_banner, Banner};
+use crate::data_keys::DataKey;
+
+mod token {
+    soroban_sdk::contractimport!(file = "../token/soroban_token_spec.wasm");
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -95,17 +82,6 @@ fn auth_admin(e: &Env, admin: Address) -> Result<(), ContractError> {
     Ok(())
 }
 
-fn get_and_inc_banner_id(env: &Env) -> u32 {
-    let prev = env
-        .storage()
-        .get(&DataKey::BannerId)
-        .unwrap_or(Ok(0u32))
-        .unwrap_optimized();
-
-    env.storage().set(&DataKey::BannerId, &(prev + 1));
-    prev + 1
-}
-
 fn get_state(env: &Env) -> State {
     let deadline = get_deadline(env);
     let current_timestamp = get_ledger_timestamp(env);
@@ -139,15 +115,6 @@ fn get_prev_bid(banner: &Banner, user: Address) -> i128 {
     bid
 }
 
-fn get_banner(e: &Env, banner_id: u32) -> Banner {
-    let banner: Banner = e
-        .storage()
-        .get(&DataKey::Banner(banner_id))
-        .unwrap_or_else(|| panic_with_error!(e, ContractError::InvalidBannerId))
-        .unwrap_optimized();
-    banner
-}
-
 // Transfer tokens from the contract to the bidder
 fn transfer(e: &Env, to: &Address, amount: &i128) {
     let token_contract_id = &get_token(e);
@@ -168,22 +135,6 @@ fn get_players(e: &Env) -> Map<Address, bool> {
         .unwrap()
 }
 
-#[contracttype]
-#[derive(Clone, Debug)]
-pub struct Banner {
-    pub minimum_bid: i128,
-    pub best_bid: i128,
-    pub close_price: i128,
-    pub bids: Map<Address, i128>,
-}
-
-/*
-TO DO: Storage time user's last bid 
-pub struct Bid {
-    pub last_bid: u64,
-    pub bids: i128,
-}
-*/
 struct Round;
 
 /*
