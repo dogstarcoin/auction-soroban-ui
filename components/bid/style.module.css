@@ -1,0 +1,30 @@
+.button , .buttonRed{
+  width: 100%;
+  display: flex;
+  padding: 16px 12px;
+  height: 50px;
+  background: #202020;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #08fed4;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1rem;
+  box-shadow: inset  0px 0px 5px 5px  rgba(0,0,0); 
+  border-top:0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 3px rgb(82, 79, 79,0.8) solid;
+}
+
+.buttonRed {
+color:red ;
+}
+
+.button:disabled  {
+  background: #101010;
+  cursor: not-allowed;
+  color: grey;
+}

@@ -1,0 +1,13 @@
+.input {
+  width: 100%;
+  background: #40404040;
+  border-radius: 25px;
+  height: 50px;
+  padding: 16px;
+  color: grey;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0);
+    outline: 0;
+  border-right: 0;
+  border-left: 0;
+
+}

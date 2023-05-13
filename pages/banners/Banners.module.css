@@ -1,0 +1,22 @@
+.main {
+    flex: 1;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    background-color: #282828;
+  
+  }
+
+  .content {
+    display: flex;
+    
+  }
+
+  .title {
+    margin-top: 40px;
+    color: #ff3200;
+    font-size: 70px;
+  }
+  

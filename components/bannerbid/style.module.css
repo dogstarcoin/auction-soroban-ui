@@ -1,0 +1,59 @@
+
+.wrapper {
+    margin-top:40px;
+    width: 100%;
+}
+
+.wrapper hr {
+ margin: 20px 0; 
+ border: 1px solid #cccccc;
+
+}
+.wrapper h2  {
+    color: #ff3200;
+    font-size: 40px;
+}
+
+.wrapper h2  span{
+    font-weight: 100;
+}
+.bestBid {
+    color: #08fed4; 
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.wrapper h3 {
+   color:#cccccc; 
+   font-size:45px;
+   margin: 0;
+}
+
+.wrapper h3 span {
+ font-weight: 100;
+}
+
+.bidButton {
+    color: #08fed4; 
+    text-align: left;
+    background-color: transparent;
+    border: 0;
+    font-size: 30px;
+    font-weight: 800;
+    cursor: pointer;
+
+}
+.bidButton span {
+    font-weight: 100;
+}
+
+
+
+.closePrice {
+    color: #08fed4; 
+}
+
+.minBid {
+    color:#cccccc; 
+
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  display:flex;
+  justify-content: space-between;
+  gap:10px; 
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton {
+  cursor: pointer;
+}
