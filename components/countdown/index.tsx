@@ -74,8 +74,7 @@ const Countdown: FunctionComponent = () => {
             <span className={styles.values}>
               {countdown}
             </span>  
-          </div>
-          
+          </div>        
         </>
       )}
     </>

@@ -18,8 +18,7 @@ export function TransactionModal({
     <div>
       <div className={styles.darkBG} onClick={closeModal} />
       <div className={styles.centered}>
-        <div className={styles.modal}>
-          
+        <div className={styles.modal}>   
           <span className={styles.value}>
             {isSuccess ? `${result.value} ${result.symbol}` : ''}
           </span>
@@ -28,8 +27,7 @@ export function TransactionModal({
             {isSuccess
               ? 'Stay tune for new bids. Auction is still running!'
               : result.error}
-          </span>
-        
+          </span>  
           <button className={styles.button} onClick={closeModal}>
             Done
           </button>

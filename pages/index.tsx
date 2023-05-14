@@ -21,11 +21,9 @@ const Home: NextPage = () => {
     router.push("/banners")
   }
 
-  return (
-      
+  return (    
       <>
         <Header/>
-
         <main className={styles.main}>
           <div>
           <Image src={logo}  height={50}  width={145} alt="logo image" />
@@ -39,7 +37,6 @@ const Home: NextPage = () => {
         </main>
         <Footer />
       </>
-
   )
 }
 

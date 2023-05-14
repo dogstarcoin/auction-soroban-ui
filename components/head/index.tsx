@@ -23,12 +23,9 @@ export function Head (props :  { backButton : boolean}  ) {
               props.backButton && (
                   <Image className={styles.backButton} src={historyBack}  height={40}  width={40} alt="History backimage"  onClick={ () => goToBack()} />
               )
-
             }
-
            <WalletData />
         </div>
-       
     </header>
 
   )

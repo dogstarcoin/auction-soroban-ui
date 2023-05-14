@@ -40,8 +40,6 @@ const SingleBanner: NextPage = () => {
           <div >
               <BannerBid  {...bannerlocal}/>
           </div>
-          <div>
-          </div>
         </main>
         <Footer/>
       </>

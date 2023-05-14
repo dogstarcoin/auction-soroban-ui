@@ -12,7 +12,6 @@ const Banners: NextPage = () => {
   return (
     <>
       <Header />
-
       <main className={styles.main}>
       <Head  backButton={false} />
         <h1 className={styles.title}>Live <br/> Auction</h1>
@@ -26,10 +25,8 @@ const Banners: NextPage = () => {
               )
             )
         }
-      </main>
-      
+      </main>   
       <Footer />
-
     </>
   )
 }

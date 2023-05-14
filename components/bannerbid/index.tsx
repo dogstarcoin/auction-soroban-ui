@@ -12,7 +12,6 @@ import * as convert from '../../convert'
 import { Constants } from '../../shared/constants'
 import { useSorobanReact } from '@soroban-react/core'
 import {Banner} from '../../models/Banner'
-//import BigNumber from 'bignumber.js'
 import { Bid } from '../bid'
 let xdr = SorobanClient.xdr
 
